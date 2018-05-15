@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game
+  </title>
+</head>
+
+<body>
+
+  <!-- //<div id="game">
+
+  </div> -->
+
+  <script type="text/javascript">
+
+ 
+
+  
+
+// Alerts the key the user pressed (userGuess).
+
+
+
+ 
+
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; 
+    
+  var win = 0;
+  var loss = 0;    
+  var guessLeft = 10; 
+  var guessMade = 0;
+
+  //function (){
+      
+  //}
+
+  // Randomly chooses a choice from the options array. This is the Computer's choice.
+  var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
+
+     document.onkeyup = function(event) {
+  
+
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+      guessMade++; 
+       
+      
+      guessLeft--;
+      var userText = document.getElementById("user-text");
+      var winText = document.getElementById("win-text");
+      var lossText = document.getElementById("loss-text");
+      var guessLeftText = document.getElementById("guessleft-text");
+      var guessMadeText = document.getElementById("guessmade-text");
+
+      userText.textContent = userGuess; 
+
+
+      // Alerts the key the user pressed (userGuess).
+      alert("User guess: " + userGuess);
+
+      // Alerts the Computer's guess.
+      alert("Computer guess: " + computerGuess);
+  
+
+  
+      if (userGuess === computerGuess ){
+        alert("win");
+        win++;
+       
+      }
+
+      else if (userGuess !== computerGuess ) {
+        alert("loss");
+        loss++;
+        
+      }
+
+      else if (loss == 10 ) {
+        alert("You Lost. Refresh to strat again");
+        
+        
+      }
+
+
+      else {
+        alert("Try Again");
+      };
+
+      winText.textContent = win;
+      lossText.textContent = loss;
+     
+      guessLeftText.textContent = guessLeft;
+      guessMadeText.textContent = guessMade;
+    };
+
+
+  </script>
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="jumbotron">
+        <h1>The Psychic Game </h1>
+        <h2>Guess what letter I am thinking of... </h2>
+          <h2>You typed <span id="user-text"><strong></strong></span></h2>
+          <h3># of wins:<span id="win-text"><strong></strong></h3>
+          <h3># of losses:<span id="loss-text"><strong></strong></h3>
+          <h3>Guesses Left:<span id="guessleft-text"><strong></strong></h3>
+          <h3>Your Guesses made so far:<span id="guessmade-text"><strong></strong></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
